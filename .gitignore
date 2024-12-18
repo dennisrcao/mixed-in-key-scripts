@@ -34,3 +34,8 @@ ENV/
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Test folder
+test_folder/
+test_folder/*
+
