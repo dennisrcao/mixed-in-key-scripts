@@ -3,8 +3,8 @@
 ## Purpose
 This tool prepares audio files for analysis by Mixed In Key by removing existing metadata tags. When audio files contain metadata (like ID3 tags in MP3s), Mixed In Key may not properly update the filename with the detected key and tempo information. This tool ensures consistent analysis by clearing these tags first.
 
-## How It Works
-1. Place `Step1_RemoveMetadata.py` in a folder containing your audio files
+## Step 1: Remove Metadata
+1. Place `*Step1_RemoveMetadata.py` in a folder containing your audio files
 2. Run the script to process all audio files in the directory and subdirectories
 3. The script will:
    - Scan for supported audio files
@@ -12,7 +12,7 @@ This tool prepares audio files for analysis by Mixed In Key by removing existing
    - Preserve only basic file information
    - Prepare files for Mixed In Key analysis
 
-## Mixed In Key Settings
+## Step 2: Mixed In Key Analysis
 For optimal results after metadata removal, configure Mixed In Key with these settings:
 ![Mixed In Key Settings](README_assets/MixedInKeySettings.png)
 
@@ -20,6 +20,18 @@ Key settings to note:
 - Write the key and tempo (e.g., "10A - 126")
 - Place notation in front of the song name
 - Update common tags
+
+## Step 3: Post-Processing
+1. Place `*Step3_PostMIK_ReadMetaData.py` in the same folder as your audio files
+2. Run the script to:
+   - Verify all files have been properly analyzed
+   - Add "All - " prefix to any files missing Camelot notation
+   - Display a table showing:
+     - Filename
+     - Artist
+     - Title
+     - Key
+     - Whether the file was renamed
 
 ## Supported Audio Formats
 The tool handles metadata removal for various audio formats:
